@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HEE:NATION</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="logo">HEE:NATION</div>
+        
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#photocards">PhotoCards</a></li>
+                <li><a href="#song">Songs</a></li>
+                <li><a href="#music-bank">Fancams</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="banner">
+        <img src="images/HEENATION.jpeg" alt="HEE:NATION Banner">
+    </div>
+
+
+    <main>
+        <section id="home" class="page-section">
+          <h1>Welcome to HEE:NATION </h1>
+
+<p class="intro">
+     A place where music,
+    memories, and admiration come together. Step into the world of
+    <span>Lee Heeseung</span> and explore his journey through unforgettable
+    performances, cherished moments, and the passion that inspires fans
+    around the world.<br>
+    Some people become a part of our lives without ever meeting us.
+    Their music, passion, and perseverance leave a mark that time cannot
+    erase. <span>Lee Heeseung</span> is one of those people.<br>
+    Even if life changes and time moves forward, one thing never will.
+    You will always be <strong>Lee Heeseung to me</strong>, and I will
+    always be an <span>ENGENE</span>.<br>
+    This website is a small tribute to the artist who continues to inspire
+    me through his music, dedication, kindness, and unforgettable
+    performances.
+<p class="thanks">
+    Thank you for every stage,
+    every song,
+    and every memory.<br>
+    No matter where life takes me,
+    I'll always choose to be an ENGENE.</p>
+    <style>
+        .container {
+            text-align: center;
+            max-width: 600px;
+            width: 100%;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            color: var(--primary-purple);
+            margin-bottom: 10px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: var(--accent-purple);
+            margin-bottom: 40px;
+            font-weight: 500;
+        }
+        .countdown-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .time-box {
+            background: #ffffff;
+            padding: 20px 10px;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(90, 62, 125, 0.08);
+            border: 2px solid rgba(142, 108, 174, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .time-box:hover {
+            transform: translateY(-5px);
+        }
+
+        .number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary-purple);
+            line-height: 1;
+            margin-bottom: 5px;
+        }
+
+        .label {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--accent-purple);
+            font-weight: 600;
+        }
+        @media (max-width: 480px) {
+            h1 { font-size: 2rem; }
+            .countdown-container { gap: 10px; }
+            .number { font-size: 1.8rem; }
+            .label { font-size: 0.7rem; }
+        }
+ h1{
+    font-size:55px;
+    color:#6A4C93;
+    text-align:center;
+    margin-bottom:20px;
+}
+
+.intro{
+    font-size:18px;
+    font-weight:bold;
+    line-height:1.9;
+}
+p{
+    font-size:18px;
+    line-height:1.8;
+    color:#555;
+    text-align:justify;
+    margin-bottom:20px;
+}
+span{
+    color:#7E57C2;
+    font-weight:bold;
+}
+
+.thanks{
+    font-style:italic;
+    font-size:22px;
+    text-align:center;
+    color:#7E57C2;
+}
+
+.hashtag{
+    text-align:center;
+    font-weight:bold;
+    font-size:20px;
+    font-style:italic;
+    font-family: cursive;
+    color:#ffffff;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 id="headline">Heeseung's Birthday in : </h2>
+        <div class="subtitle" id="target-year">...</div>
+
+        <div class="countdown-container">
+            <div class="time-box">
+                <div class="number" id="days">00</div>
+                <div class="label">Days</div>
+            </div>
+            <div class="time-box">
+                <div class="number" id="hours">00</div>
+                <div class="label">Hours</div>
+            </div>
+            <div class="time-box">
+                <div class="number" id="minutes">00</div>
+                <div class="label">Minutes</div>
+            </div>
+            <div class="time-box">
+                <div class="number" id="seconds">00</div>
+                <div class="label">Seconds</div>
+            </div>
+        </div>
+    </div>
+<p class="hashtag">
+    #ENHYPEN_is_7 💜
+</p>
+    <script>
+        function updateCountdown() {
+            const now = new Date();
+            const currentYear = now.getFullYear(); 
+            let targetDate = new Date(currentYear, 9, 15, 0, 0, 0);
+            if (now > targetDate) {
+                targetDate = new Date(currentYear + 1, 9, 15, 0, 0, 0);
+            }
+            document.getElementById('target-year').innerText = ` Date: October 15, ${targetDate.getFullYear()}`;
+            const difference = targetDate - now;
+            const d = Math.floor(difference / (1000 * 60 * 60 * 24));
+            const h = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const m = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+            const s = Math.floor((difference % (1000 * 60)) / 1000);
+            document.getElementById('days').innerText = d.toString().padStart(2, '0');
+            document.getElementById('hours').innerText = h.toString().padStart(2, '0');
+            document.getElementById('minutes').innerText = m.toString().padStart(2, '0');
+            document.getElementById('seconds').innerText = s.toString().padStart(2, '0');
+        }
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+    </script>
+            </section>
+
+
+        <section id="photocards" class="page-section">
+    <style>
+        .photocard-container {
+            position: relative;
+            width: 340px;
+            height: 530px;
+            background: linear-gradient(135deg, #ffffff 15%, #d0b7e7 100%);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 2px solid var(--card-border);
+            border-radius: 30px; 
+            box-shadow: 0 15px 35px rgba(167, 139, 250, 0.15), 
+                        0 0 25px var(--lilac-glow);
+            padding: 18px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            transition: transform 0.3s ease;
+        }
+
+        .photocard-container:hover {
+            transform: translateY(-4px) scale(1.01);
+            box-shadow: 0 20px 40px rgba(190, 177, 228, 0.968), 
+                        0 0 35px rgba(223, 207, 239, 0.929);
+        }
+        .image-frame {
+            position: relative;
+            width: 100%;
+            height: 82%;
+            border-radius: 20px;
+            overflow: hidden;
+            background:black;
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            box-shadow: inset 0 0 10px rgba(167, 139, 250, 0.1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .photocard-img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain; 
+            opacity: 1;
+            display: block;
+        }
+
+        .slide-next {
+            animation: slideNextAnim 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1) forwards;
+        }
+
+        .slide-prev {
+            animation: slidePrevAnim 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1) forwards;
+        }
+
+        @keyframes slideNextAnim {
+            0% { opacity: 0; transform: scale(0.92) translateX(40px); }
+            100% { opacity: 1; transform: scale(1) translateX(0); }
+        }
+
+        @keyframes slidePrevAnim {
+            0% { opacity: 0; transform: scale(0.92) translateX(-40px); }
+            100% { opacity: 1; transform: scale(1) translateX(0); }
+        }
+
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            padding: 0 8px;
+        }
+
+        .nav-btn {
+            background: rgba(255, 255, 255, 0.6);
+            border: 1px solid var(--lilac-accent);
+            color: #7c3aed; 
+            font-size: 20px;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 10px rgba(167, 139, 250, 0.1);
+        }
+
+        .nav-btn:hover {
+            background: #fdfaee; 
+            border-color: #a78bfa;
+            transform: scale(1.1);
+            box-shadow: 0 0 12px var(--lilac-accent);
+        }
+
+        .nav-btn:active {
+            transform: scale(0.95);
+        }
+
+        .card-counter {
+            color: #6d28d9;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            font-size: 13px;
+            background: rgba(255, 255, 255, 0.7);
+            padding: 5px 14px;
+            border-radius: 20px;
+            border: 1px solid var(--card-border);
+        }
+        .p{
+            font-size: 20px;
+            line-height: 1.6;
+            color: black;
+            text-align: justify;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>The Memories I Treasure Most</h1>
+<p class="p">Every photocard tells a story, every smile becomes a memory, and every moment is a reminder of why admiration lasts forever. These aren't just photocards to me, they're little pieces of memories that remind me why I became an <span>ENGENE</span> and why I'll continue supporting you through every chapter of your journey, <span>Lee Heeseung 💜</span></p>
+    <div id="sparkle-container"></div>
+    <div class="photocard-container">
+        <div class="image-frame">
+            <img id="photocard-img" class="photocard-img" src="images/img1.jpeg" alt="Photocard">
+        </div>
+        <div class="controls">
+            <button class="nav-btn" id="prev-btn">✿</button>
+            <div class="card-counter" id="card-counter">01 / 20</div>
+            <button class="nav-btn" id="next-btn">✿</button>
+        </div>
+    </div>
+
+    <script>
+         const photos = [
+            "images/img1.jpeg",
+            "images/img2.jpeg",
+            "images/img3.jpeg",
+            "images/img4.jpeg",
+            "images/img5.jpeg",
+            "images/img6.jpeg",
+            "images/img7.jpeg",
+            "images/img8.jpeg",
+            "images/img9.jpeg",
+            "images/img10.jpeg",
+            "images/img11.jpeg",
+            "images/img12.jpeg",
+            "images/img13.jpeg",
+            "images/img14.jpeg",
+            "images/img15.jpeg",
+            "images/img16.jpeg",
+            "images/img17.jpeg",
+            "images/img18.jpeg",
+            "images/img19.jpeg",
+            "images/img20.jpeg"
+        ];
+
+        let currentIndex = 0;
+        const imgElement = document.getElementById('photocard-img');
+        const counterElement = document.getElementById('card-counter');
+        const sparkleContainer = document.getElementById('sparkle-container');
+
+        counterElement.textContent = `01 / ${String(photos.length).padStart(2, '0')}`;
+
+        function changeImage(direction) {
+            imgElement.classList.remove('slide-next', 'slide-prev');
+            imgElement.style.opacity = '0';
+
+            if (direction === 'next') {
+                currentIndex = (currentIndex + 1) % photos.length;
+            } else {
+                currentIndex = (currentIndex - 1 + photos.length) % photos.length;
+            }
+
+            const imgPreloader = new Image();
+            imgPreloader.src = photos[currentIndex];
+
+            imgPreloader.onload = () => {
+                imgElement.src = photos[currentIndex];
+                counterElement.textContent = `${String(currentIndex + 1).padStart(2, '0')} / ${String(photos.length).padStart(2, '0')}`;
+                imgElement.style.opacity = '';
+                
+                if (direction === 'next') {
+                    imgElement.classList.add('slide-next');
+                } else {
+                    imgElement.classList.add('slide-prev');
+                }
+            };
+
+            //triggerCuteSparkles();
+        }
+
+        function triggerCuteSparkles() {
+            const sparkleCount = 40;
+            const containerRect = document.querySelector('.photocard-container').getBoundingClientRect();
+            const sparkleTypes = ['✦', '✨', '•', '★'];
+
+            for (let i = 0; i < sparkleCount; i++) {
+                const sparkle = document.createElement('div');
+                sparkle.classList.add('sparkle');
+                sparkle.innerText = sparkleTypes[Math.floor(Math.random() * sparkleTypes.length)];
+
+                const fontSize = Math.random() * 14 + 10;
+                sparkle.style.fontSize = `${fontSize}px`;
+
+                const spawnX = containerRect.left + (Math.random() * containerRect.width);
+                const spawnY = containerRect.top + (Math.random() * containerRect.height * 0.8);
+                sparkle.style.left = `${spawnX}px`;
+                sparkle.style.top = `${spawnY}px`;
+
+                const xMid = (Math.random() - 0.5) * 120;
+                const yMid = (Math.random() - 0.5) * 120 - 40; 
+                const xEnd = xMid * 1.6 + (Math.random() - 0.5) * 50;
+                const yEnd = yMid * 1.3 + Math.random() * 150 + 100;
+
+                const duration = Math.random() * 1.0 + 1.5;
+
+                sparkle.style.setProperty('--x-mid', `${xMid}px`);
+                sparkle.style.setProperty('--y-mid', `${yMid}px`);
+                sparkle.style.setProperty('--x-end', `${xEnd}px`);
+                sparkle.style.setProperty('--duration', `${duration}s`);
+
+                sparkleContainer.appendChild(sparkle);
+
+                setTimeout(() => {
+                    sparkle.remove();
+                }, duration * 1000);
+            }
+        }
+        document.getElementById('next-btn').addEventListener('click', () => changeImage('next'));
+        document.getElementById('prev-btn').addEventListener('click', () => changeImage('prev'));
+    </script>
+    </section>
+
+        <section id="song" class="page-section">
+        <style>
+        h1 {
+            color: #8e7cc3; 
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+        }
+        .disclaimer {
+            display: inline-block;
+            background-color: #ffffff;
+            border: 1px dashed #c2b4d6;
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: #7b6d8d;
+            font-weight: 500;
+        }
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .video-card {
+            background: #ffffff; 
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 6px 15px rgba(142, 124, 195, 0.15);
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #eadef7;
+            transition: transform 0.2s ease;
+        }
+
+        .video-card:hover {
+            transform: translateY(-4px);
+        }
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            height: 0;
+            background-color: #000;
+            cursor: pointer;
+        }
+
+        .video-container iframe, 
+        .video-container .custom-thumbnail {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+        .video-container .custom-thumbnail {
+            object-fit: cover;
+            z-index: 2;
+        }
+        .play-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(74, 62, 86, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 3;
+            transition: background 0.3s ease;
+        }
+
+        .video-container:hover .play-overlay {
+            background: rgba(142, 124, 195, 0.4);
+        }
+
+        .play-button-icon {
+            width: 60px;
+            height: 60px;
+            background: #ffffff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            color: #8e7cc3;
+            font-size: 24px;
+        }
+
+        .video-info {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            justify-content: space-between;
+        }
+
+        .video-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            line-height: 1.4;
+            color: black;
+        }
+        .yt-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #d9cef1; 
+            color: #8e7cc3; 
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: background 0.2s ease, color 0.2s ease;
+            border: 1px solid #c2b4d6;
+        }
+
+        .yt-button:hover {
+            background-color: #8e7cc3;
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>🎵 Enhypen Songs </h1>
+        <p class="disclaimer">✨ Unofficial Fan Site • Created for non-commercial fun</p>
+    </header>
+
+    <div class="video-grid">
+        <div class="video-card">
+            <div class="video-container" onclick="loadVideo(this, 'VIDEO_ID_1')">
+                <img src="images/given-taken.jpeg" alt="Song 1 Thumbnail" class="custom-thumbnail">
+                <div class="play-overlay">
+                    <div class="play-button-icon">▶</div>
+                </div>
+            </div>
+            <div class="video-info">
+                <div class="video-title">Enhypen Given-Taken MV</div>
+                <a href="https://youtu.be/nQ6wLuYvGd4?si=-sFlwo9iN9HO2ehN" target="_blank" class="yt-button">Watch on YouTube</a>
+            </div>
+        </div>
+
+        <div class="video-card">
+            <div class="video-container" onclick="loadVideo(this, 'VIDEO_ID_2')">
+                <img src="images/Drunk dazed.jpeg" alt="Song 2 Thumbnail" class="custom-thumbnail">
+                <div class="play-overlay">
+                    <div class="play-button-icon">▶</div>
+                </div>
+            </div>
+            <div class="video-info">
+                <div class="video-title">Enhypen Drunk Dazed MV</div>
+                <a href="https://youtu.be/Fc7-Oe0tj5k?si=6_bJxr9uvr18IQLE" target="_blank" class="yt-button">Watch on YouTube</a>
+            </div>
+        </div>
+        <div class="video-card">
+            <div class="video-container" onclick="loadVideo(this, 'VIDEO_ID_3')">
+                <img src="images/Fever.jpeg" alt="Song 3 Thumbnail" class="custom-thumbnail">
+                <div class="play-overlay">
+                    <div class="play-button-icon">▶</div>
+                </div>
+            </div>
+            <div class="video-info">
+                <div class="video-title">Enhypen Fever MV</div>
+                <a href="https://youtu.be/X7d6Dt17yHk?si=GWgV5fX_mpYzAiUm" target="_blank" class="yt-button">Watch on YouTube</a>
+            </div>
+        </div>
+        <div class="video-card">
+            <div class="video-container" onclick="loadVideo(this, 'VIDEO_ID_4')">
+                <img src="images/sweet venom.jpeg" alt="Song 4 Thumbnail" class="custom-thumbnail">
+                <div class="play-overlay">
+                    <div class="play-button-icon">▶</div>
+                </div>
+            </div>
+            <div class="video-info">
+                <div class="video-title">Enhypen Sweet Venom MV</div>
+                <a href="https://youtu.be/qedonJosQ3g?si=swUB-mZy8GVti2D9" target="_blank" class="yt-button">Watch on YouTube</a>
+            </div>
+        </div>
+        <div class="video-card">
+            <div class="video-container" onclick="loadVideo(this, 'VIDEO_ID_5')">
+                <img src="images/Fatal trouble.jpeg" alt="Song 5 Thumbnail" class="custom-thumbnail">
+                <div class="play-overlay">
+                    <div class="play-button-icon">▶</div>
+                </div>
+            </div>
+            <div class="video-info">
+                <div class="video-title">Enhypen Fatal Trouble MV </div>
+                <a href="https://youtu.be/-kIraOyRqUw?si=1xC5-nxCFGNAibCQ" target="_blank" class="yt-button">Watch on YouTube</a>
+            </div>
+        </div>
+
+        <div class="video-card">
+            <div class="video-container" onclick="loadVideo(this, 'VIDEO_ID_6')">
+                <img src="images/XO.jpeg" alt="Song 6 Thumbnail" class="custom-thumbnail">
+                <div class="play-overlay">
+                    <div class="play-button-icon">▶</div>
+                </div>
+            </div>
+            <div class="video-info">
+                <div class="video-title">Enhypen XO MV</div>
+                <a href="https://youtu.be/FPDYeRk2PO8?si=vQGKf-u7n0xx_fHU" target="_blank" class="yt-button">Watch on YouTube</a>
+            </div>
+        </div>
+
+        <div class="video-card">
+            <div class="video-container" onclick="loadVideo(this, 'VIDEO_ID_7')">
+                <img src="images/mooonstruck.jpeg" alt="Song 7 Thumbnail" class="custom-thumbnail">
+                <div class="play-overlay">
+                    <div class="play-button-icon">▶</div>
+                </div>
+            </div>
+            <div class="video-info">
+                <div class="video-title">Enhypen Moonstruck MV</div>
+                <a href="https://youtu.be/7T8yERKbXfc?si=J27JV7bHqOwDM0Lp" target="_blank" class="yt-button">Watch on YouTube</a>
+            </div>
+        </div>
+
+         <div class="video-card">
+            <div class="video-container" onclick="loadVideo(this, 'VIDEO_ID_8')">
+                <img src="images/highway1009.jpeg" alt="Song 8 Thumbnail" class="custom-thumbnail">
+                <div class="play-overlay">
+                    <div class="play-button-icon">▶</div>
+                </div>
+            </div>
+            <div class="video-info">
+                <div class="video-title">Enhypen Highway 1009 MV</div>
+                <a href="https://youtu.be/_ywIhBOpjQA?si=T3X_l1FOs1JWXfQD" target="_blank" class="yt-button">Watch on YouTube</a>
+            </div>
+        </div>
+
+         <div class="video-card">
+            <div class="video-container" onclick="loadVideo(this, 'VIDEO_ID_9')">
+                <img src="images/No doubt.jpeg" alt="Song 9 Thumbnail" class="custom-thumbnail">
+                <div class="play-overlay">
+                    <div class="play-button-icon">▶</div>
+                </div>
+            </div>
+            <div class="video-info">
+                <div class="video-title">Enhypen No Doubt MV</div>
+                <a href="https://youtu.be/rDolt3jJRsM?si=iKfrgiK0skilDzLE" target="_blank" class="yt-button">Watch on YouTube</a>
+            </div>
+        </div>
+
+         <div class="video-card">
+            <div class="video-container" onclick="loadVideo(this, 'VIDEO_ID_10')">
+                <img src="images/helium.jpeg" alt="Song 10 Thumbnail" class="custom-thumbnail">
+                <div class="play-overlay">
+                    <div class="play-button-icon">▶</div>
+                </div>
+            </div>
+            <div class="video-info">
+                <div class="video-title">Enhypen Helium MV</div>
+                <a href="https://youtu.be/WIiuW6R2wiE?si=cYU0qnzOsbVg7WvY" target="_blank" class="yt-button">Watch on YouTube</a>
+            </div>
+        </div>
+
+         <div class="video-card">
+            <div class="video-container" onclick="loadVideo(this, 'VIDEO_ID_11')">
+                <img src="images/ride or die.jpeg" alt="Song 11 Thumbnail" class="custom-thumbnail">
+                <div class="play-overlay">
+                    <div class="play-button-icon">▶</div>
+                </div>
+            </div>
+            <div class="video-info">
+                <div class="video-title">Evan Ride or Die MV</div>
+                <a href="https://youtu.be/CsGENgLpyaw?si=OLNe74oxH9gc5vWz" target="_blank" class="yt-button">Watch on YouTube</a>
+            </div>
+        </div>
+
+         <div class="video-card">
+            <div class="video-container" onclick="loadVideo(this, 'VIDEO_ID_12')">
+                <img src="images/overflow evan.jpeg" alt="Song 12 Thumbnail" class="custom-thumbnail">
+                <div class="play-overlay">
+                    <div class="play-button-icon">▶</div>
+                </div>
+            </div>
+            <div class="video-info">
+                <div class="video-title">Evan Overflow MV</div>
+                <a href="https://youtu.be/BXwL-cBVXDQ?si=erPunf3fZvpnnjFs" target="_blank" class="yt-button">Watch on YouTube</a>
+            </div>
+        </div>
+    </div>
+    <script>
+        function loadVideo(container, videoId) {
+            container.innerHTML = `<iframe src="https://www.youtube.com/embed/${videoId}?autoplay=1" allow="autoplay; encrypted-media" allowfullscreen></iframe>`;
+        }
+    </script>
+        </section>
+
+
+        <section id="music-bank" class="page-section">
+           <header>
+        <h1> Heeseung's Fancams </h1>
+        <p class="p">🌙 No new beginning could ever erase the memories of these stages.✨ </p>
+    </header>
+    
+    <div class="video-grid">
+   <div class="video-card">
+            <div class="video-container" onclick="loadVideo(this, 'VIDEO_ID_12')">
+                <img src="images/XO Fancam.jpeg" alt="Song 12 Thumbnail" class="custom-thumbnail">
+                <div class="play-overlay">
+                </div>
+            </div>
+            <div class="video-info">
+                <div class="video-title">Enhypen Heeseung XO Fancam</div>
+                <a href="https://youtu.be/tPw9pzaUux8?si=zaIVc8jOgmMn2Olz" target="_blank" class="yt-button">Watch on YouTube</a>
+            </div>
+        </div>
+    
+    <div class="video-card">
+            <div class="video-container" onclick="loadVideo(this, 'VIDEO_ID_12')">
+                <img src="images/Bite me fancam.jpeg" alt="Song 12 Thumbnail" class="custom-thumbnail">
+                <div class="play-overlay">
+                </div>
+            </div>
+            <div class="video-info">
+                <div class="video-title">Enhypen Heeseung Bite Me Fancam</div>
+                <a href="https://youtu.be/TkBkqtxsbNI?si=1Ngq3o-MnwVdcrYE" target="_blank" class="yt-button">Watch on YouTube</a>
+            </div>
+        </div>
+
+    <div class="video-card">
+            <div class="video-container" onclick="loadVideo(this, 'VIDEO_ID_12')">
+                <img src="images/Big girls don't cry fancam.jpeg" alt="Song 12 Thumbnail" class="custom-thumbnail">
+                <div class="play-overlay">
+                </div>
+            </div>
+            <div class="video-info">
+                <div class="video-title">Enhypen Heeseung Big Girls Don't Cry Fancam</div>
+                <a href="https://youtu.be/WL12YHyxbV0?si=Eu9FOoOUrE1IAKFD" target="_blank" class="yt-button">Watch on YouTube</a>
+            </div>
+        </div>
+   
+    <div class="video-card">
+            <div class="video-container" onclick="loadVideo(this, 'VIDEO_ID_12')">
+                <img src="images/daydream fancam.jpeg" alt="Song 12 Thumbnail" class="custom-thumbnail">
+                <div class="play-overlay">
+                </div>
+            </div>
+            <div class="video-info">
+                <div class="video-title">Enhypen Heeseung Daydream Fancam</div>
+                <a href="https://youtu.be/6-dp9NZK69A?si=8oyKSbO6khIPb-4v" target="_blank" class="yt-button">Watch on YouTube</a>
+            </div>
+        </div>
+
+    <div class="video-card">
+            <div class="video-container" onclick="loadVideo(this, 'VIDEO_ID_12')">
+                <img src="images/outside fancam.jpeg" alt="Song 12 Thumbnail" class="custom-thumbnail">
+                <div class="play-overlay">
+                </div>
+            </div>
+            <div class="video-info">
+                <div class="video-title">Enhypen Heeseung Outside Fancam</div>
+                <a href="https://youtu.be/UE_W7e_79Yc?si=HjSNmqElHRD5Yfy8" target="_blank" class="yt-button">Watch on YouTube</a>
+            </div>
+        </div>
+   
+
+    <div class="video-card">
+            <div class="video-container" onclick="loadVideo(this, 'VIDEO_ID_12')">
+                <img src="images/knife fancam.jpeg" alt="Song 12 Thumbnail" class="custom-thumbnail">
+                <div class="play-overlay">
+                </div>
+            </div>
+            <div class="video-info">
+                <div class="video-title">Enhypen Heeseung Knife Fancam</div>
+                <a href="https://youtu.be/r2nt09MwPYs?si=jpLERlS-N5Mtzsoa" target="_blank" class="yt-button">Watch on YouTube</a>
+            </div>
+        </div>
+
+        <div class="video-card">
+            <div class="video-container" onclick="loadVideo(this, 'VIDEO_ID_12')">
+                <img src="images/BTHB fancam.jpeg" alt="Song 12 Thumbnail" class="custom-thumbnail">
+                <div class="play-overlay">
+                </div>
+            </div>
+            <div class="video-info">
+                <div class="video-title">Enhypen Heeseung Bought The Heat Back Fancam</div>
+                <a href="https://youtu.be/k5hS4JOU3CU?si=3FE_RIVDFsxuGpBa" target="_blank" class="yt-button">Watch on YouTube</a>
+            </div>
+        </div>
+
+        <div class="video-card">
+            <div class="video-container" onclick="loadVideo(this, 'VIDEO_ID_12')">
+                <img src="images/ride or die fancam.jpeg" alt="Song 12 Thumbnail" class="custom-thumbnail">
+                <div class="play-overlay">
+                </div>
+            </div>
+            <div class="video-info">
+                <div class="video-title">Evan Ride or Die Fancam</div>
+                <a href="https://youtu.be/qFtrzEzzOpk?si=m0AKAoW4wY_JPtTI" target="_blank" class="yt-button">Watch on YouTube</a>
+            </div>
+        </div>
+
+        <div class="video-card">
+            <div class="video-container" onclick="loadVideo(this, 'VIDEO_ID_12')">
+                <img src="images/overflow.jpeg" alt="Song 12 Thumbnail" class="custom-thumbnail">
+                <div class="play-overlay">
+                </div>
+            </div>
+            <div class="video-info">
+                <div class="video-title">Evan Overflow Fancam</div>
+                <a href="https://youtu.be/HjNH9xA6H60?si=rYLWzmnNox6OEeAK" target="_blank" class="yt-button">Watch on YouTube</a>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p class="copyright">&copy; 2026 HEE:NATION | A Journey of Music, Passion and Unforgettable Memories.</p>
+    </footer>
+</body>
+</html>
